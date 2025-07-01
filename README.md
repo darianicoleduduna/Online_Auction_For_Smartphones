@@ -30,20 +30,25 @@ add phones to the market, remove or edit them.
 
 ## Interface and functionalities
 
-The app is connected to a database which I created using Microsoft SQL Server. Firstly the user must connect using the login page:
+The app is connected to a database which I created using Microsoft SQL Server. Firstly the user must connect using the `login page`:
 ![Login Page](add_mat/login.png)
-Then, after authentication, on the home page, the user can see info about the app and some stats about the buyers, sellers, products.
+
+Then, after authentication, on the `home page`, the user can see info about the app and some stats about the buyers, sellers, products.
 ![Home](add_mat/home.png)Here are some examples:
 - The current phones from every company: ![stat](add_mat/stat.png)
 - An option where you can mention the budget you're on and that will show you the sellers who have the average transaction amount lower than the selected budget: ![Budget](add_mat/buget.png)
-On the Auction page you can see the available auction tables ![Auction page](add_mat/licitatii.png).
-You can also visualize more details about the auctioned item, view the bids that have already been placed and place a bid.
-![Bid](add_mat/bid.png).
-You can report a problem on the Help page, which will be assigned randomly to an admin and you can check its status on the same page. If the problem is still active you can choose to delete it or edit it.
-![Help](add_mat/ajutor.png).
 
-On the Smartphones Page, you can see alL the phones that are in the database, you can add a new phone or delete one. You can also filter the list.
+On the `Auction page` you can see the available auction tables ![Auction page](add_mat/licitatii.png)
+
+You can also visualize more details about the auctioned item, view the bids that have already been placed and place a bid.
+![Bid](add_mat/bid.png)
+
+You can report a problem on the `Help page`, which will be assigned randomly to an admin and you can check its status on the same page. If the problem is still active you can choose to delete it or edit it.
+![Help](add_mat/ajutor.png)
+
+On the `Smartphones Page`, you can see alL the phones that are in the database, you can add a new phone or delete one. You can also filter the list.
 ![Phones](add_mat/tel.png)
+
 By pressing the Logout button, you will return to the Login page.
 
 
