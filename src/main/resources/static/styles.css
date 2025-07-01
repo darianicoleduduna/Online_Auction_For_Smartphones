@@ -1,0 +1,296 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+}
+header {
+    background-color: #5b0675; /* Fundal verde */
+    color: #dab0f1;
+    padding: 20px 0;            /* Spațiu sus/jos */
+    text-align: left;         /* Centrat pe orizontală */
+    font-size: 24px;            /* Dimensiune text */
+    font-weight: bold;          /* Grosime text */
+
+}
+header p{
+    margin-left: 5px;
+}
+.content {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4d0595, #cf0d7c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.login-box {
+    background-color: #dab0f1;
+    padding: 40px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.textbox {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.textbox input:focus {
+    border-color: #fc25bf;
+    box-shadow: 0 0 10px rgb(104, 7, 186);
+    outline: none;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    color: white;
+    background-color: #ef5af4;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #9505ba;
+    transform: translateY(-2px);
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #cd25fc;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+    .login-box {
+        width: 90%;
+        padding: 20px;
+    }
+}
+.main-content{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4d0595, #cf0d7c);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+}
+.auction-section {
+    width: 70%;
+    margin: 20px ;
+    margin-left: 280px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-self: center;
+}
+
+.auction-section h2 {
+    text-align: left;
+    font-size: 35px;
+    color: #333;
+    margin-bottom: 30px;
+}
+.welcome-mess{
+    margin-bottom: 10px;
+}
+
+.auction-section h3 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+
+.auction-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+.auction-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0.9;
+}
+
+
+.auction-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #dab0f1;
+}
+
+
+.auction-item p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+
+.auction-item p span {
+    font-weight: bold;
+    color: #4CAF50;
+}
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+    text-align:right;
+    margin-right: 20px;
+
+}
+nav a{
+    color: #dab0f1;
+    margin:5px;
+    font-size:18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+nav a:hover{
+    background-color: #ce4ad5;
+    padding:5px;
+    border-radius: 10px;
+
+}
+.licitatii-container, .profil-container {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4d0595, #cf0d7c);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Auction Grid Styling */
+.auction-grid {
+    padding: 40px;
+    text-align: center;
+    background: linear-gradient(135deg, #4d0595, #cf0d7c);
+}
+
+.auction-grid h1 {
+    color: #dab0f1;
+    margin-bottom: 30px;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* Card Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 40px;
+}
+
+/* Card Styling */
+.auction-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.auction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Styling */
+.image-container img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Details Styling */
+.details-container {
+    padding: 20px;
+}
+
+.details-container h2 {
+    font-size: 20px;
+    color: #5b0675;
+    margin-bottom: 10px;
+}
+
+.details-container p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.details-container .btn {
+    display: inline-block;
+    background-color: #ef5af4;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.details-container .btn:hover {
+    background-color: #9505ba;
+}
+
+
+

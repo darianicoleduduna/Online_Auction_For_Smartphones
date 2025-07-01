@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+}
+header {
+    background-color: #5b0675;
+    color: #dab0f1;
+    padding: 20px 0;
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+}
+header p{
+    margin-left: 5px;
+}
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+    text-align:right;
+    margin-right: 20px;
+
+}
+nav a{
+    color: #dab0f1;
+    margin:5px;
+    font-size:18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+nav a:hover{
+    background-color: #ce4ad5;
+    padding:5px;
+    border-radius: 10px;
+
+}
+.profil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4d0595, #cf0d7c);
+}
+
+/* Profil Section */
+.profil-section {
+    width: 70%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Titlu Profil */
+.profil-section h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #5b0675;
+    margin-bottom: 20px;
+}
+
+/* Informații generale */
+.profil-info p {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+.profil-info p strong {
+    color: #333;
+}
+.profil-info p span {
+    font-weight: bold;
+    color: #23a58b;
+}
+
+
+.profil-info h3 {
+    font-size: 24px;
+    color: #5b0675;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #dab0f1;
+    padding-bottom: 5px;
+}
+
+/* Roluri */
+.profil-info ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+.profil-info ul li {
+    font-size: 18px;
+    color: #555;
+    margin: 5px 0;
+}
+.profil-info ul li:before {
+    content: '• ';
+    color: #5b0675;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/* Acțiuni (Butoane) */
+.profil-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+.profil-actions form {
+    display: inline-block;
+    margin: 10px;
+}
+.profil-actions button {
+    padding: 10px 20px;
+    background-color: #ef5af4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.profil-actions button:hover {
+    background-color: #9505ba;
+}
+
+/* Link pentru Editare */
+.profil-actions a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #71135e;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.profil-actions a.btn:hover {
+    background-color: #71135e;
+    transform: translateY(-3px);
+}
+/* Stilizare pentru butonul de editare */
+.profil-actions a.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #71135e; /* Verde pentru editare */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profil-actions a.btn:hover {
+    background-color: #71135e; /* O nuanță mai închisă pentru hover */
+    transform: translateY(-3px); /* Ușor efect de ridicare */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Shadow mai intens */
+}
+
+.profil-actions a.btn:active {
+    background-color: #71135e; /* Nuanță mai întunecată pentru click */
+    transform: translateY(1px); /* Ușor efect de apăsare */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Shadow mai mic */
+}
+
+
+/* Responsivitate */
+@media (max-width: 768px) {
+    .profil-section {
+        width: 90%;
+        padding: 20px;
+    }
+    .profil-info p {
+        font-size: 16px;
+    }
+    .profil-actions button,
+    .profil-actions a.btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

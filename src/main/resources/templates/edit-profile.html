@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Editare Profil</title>
+  <link rel="stylesheet" href="/edit.css">
+</head>
+<body>
+<header>
+  <div class="container-header">
+    <p>Editare Profil</p>
+    <nav>
+      <a href="/profile">Înapoi la Profil</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </div>
+</header>
+
+<main class="profile-edit-container">
+  <h2>Editare Profil</h2>
+  <form th:action="@{/profile/edit}" method="post">
+    <!-- Informații din tabela Utilizatori -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" th:value="${user.email}" required>
+
+    <label for="password">Parola:</label>
+    <input type="password" id="password" name="password" th:value="${user.password}" required>
+
+    <!-- Informații din tabela Cumparatori -->
+    <label for="nume">Nume:</label>
+    <input type="text" id="nume" name="nume" th:value="${cumparatorDetails['Nume']}" required>
+
+    <label for="prenume">Prenume:</label>
+    <input type="text" id="prenume" name="prenume" th:value="${cumparatorDetails['Prenume']}" required>
+
+    <label for="localitate">Localitate:</label>
+    <input type="text" id="localitate" name="localitate" th:value="${cumparatorDetails['Localitate']}" required>
+
+    <label for="strada">Strada:</label>
+    <input type="text" id="strada" name="strada" th:value="${cumparatorDetails['Strada']}" required>
+
+    <label for="nr">Număr:</label>
+    <input type="number" id="nr" name="nr" th:value="${cumparatorDetails['Nr']}" required>
+
+    <label for="sex">Sex:</label>
+    <select id="sex" name="sex">
+      <option value="M" th:selected="${cumparatorDetails['Sex'] == 'M'}">M</option>
+      <option value="F" th:selected="${cumparatorDetails['Sex'] == 'F'}">F</option>
+    </select>
+
+    <label for="dataNasterii">Data Nașterii:</label>
+    <input type="date" id="dataNasterii" name="dataNasterii" th:value="${cumparatorDetails['Data_Nasterii']}" required>
+
+    <label for="nrOferte">Nr. Oferte:</label>
+    <input type="number" id="nrOferte" name="nrOferte" th:value="${cumparatorDetails['Nr_oferte']}" required>
+
+    <button type="submit" class="btn">Salvează Modificările</button>
+  </form>
+</main>
+</body>
+</html>

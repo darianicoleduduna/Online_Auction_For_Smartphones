@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Profilul Meu</title>
+    <link rel="stylesheet" href="/profil.css">
+</head>
+<body>
+<header>
+    <div class="container-header">
+        <p>Licitatii Online de Telefoane Mobile</p>
+        <nav>
+            <a href="/home">Acasă</a>
+            <a href="/licitatii">Licitatii</a>
+            <a href="/telefoane">Telefoane</a>
+            <a href="/profile">Profilul Meu</a>
+            <a href="/ajutor">Ajutor</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<div class="profil-container">
+    <div class="profil-section">
+        <h2>Profilul Meu</h2>
+        <div class="profil-info">
+            <!-- Informații generale -->
+            <p><strong>Username:</strong> <span th:text="${user.username}"></span></p>
+            <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+            <p><strong>Parola:</strong> <span th:text="${user.password}"></span></p>
+
+            <!-- Nume și Prenume -->
+            <p><strong>Nume:</strong> <span th:text="${cumparatorDetails['Nume'] ?: vanzatorDetails['Nume']}"></span></p>
+            <p><strong>Prenume:</strong> <span th:text="${cumparatorDetails['Prenume'] ?: vanzatorDetails['Prenume']}"></span></p>
+
+            <!-- Adresa -->
+            <p><strong>Strada:</strong>
+                <span th:text="${cumparatorDetails['Strada'] ?: vanzatorDetails['Strada'] ?: 'N/A'}"></span>
+            </p>
+            <p><strong>Localitate:</strong>
+                <span th:text="${cumparatorDetails['Localitate'] ?: vanzatorDetails['Localitate'] ?: 'N/A'}"></span>
+            </p>
+            <p><strong>Număr:</strong>
+                <span th:text="${cumparatorDetails['Nr'] ?: vanzatorDetails['Nr'] ?: 'N/A'}"></span>
+            </p>
+
+            <!-- Roluri -->
+            <p><strong>Roluri:</strong></p>
+            <ul>
+                <li th:if="${isCumparator}" th:text="'Rol: Cumpărător'"></li>
+                <li th:if="${isVanzator}" th:text="'Rol: Vânzător'"></li>
+                <li th:if="${!isCumparator and !isVanzator}" th:text="'Fără rol asignat'"></li>
+            </ul>
+
+            <!-- Detalii specifice Cumpărător -->
+            <div th:if="${isCumparator}">
+                <h3>Detalii Cumpărător</h3>
+                <p><strong>Sex:</strong> <span th:text="${cumparatorDetails['Sex'] ?: 'N/A'}"></span></p>
+                <p><strong>Data Nașterii:</strong> <span th:text="${cumparatorDetails['Data_Nasterii'] ?: 'N/A'}"></span></p>
+                <p><strong>Nr. Oferte:</strong> <span th:text="${cumparatorDetails['Nr_oferte'] ?: 'N/A'}"></span></p>
+            </div>
+
+            <!-- Detalii specifice Vânzător -->
+            <div th:if="${isVanzator}">
+                <h3>Detalii Vânzător</h3>
+                <p><strong>Nr. Produse Vândute:</strong>
+                    <span th:text="${vanzatorDetails['Nr_produsevandute'] ?: '0'}"></span>
+                </p>
+                <p><strong>Rating:</strong>
+                    <span th:text="${vanzatorDetails['Rating'] ?: 'N/A'}"></span>
+                </p>
+            </div>
+
+            <!-- Butoane pentru a deveni Cumpărător sau Vânzător -->
+            <div class="profil-actions">
+                <form th:if="${!isCumparator}" th:action="@{/profile/devino-cumparator}" method="post">
+                    <button type="submit" class="btn">Devino Cumpărător</button>
+                </form>
+                <form th:if="${!isVanzator}" th:action="@{/profile/devino-vanzator}" method="post">
+                    <button type="submit" class="btn">Devino Vânzător</button>
+                </form>
+                <a th:href="@{/profile/edit}" class="btn">Editare</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer">
+        <p>&copy; 2025 Licitații Online</p>
+    </div>
+</footer>
+</body>
+</html>

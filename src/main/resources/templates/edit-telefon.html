@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifică Telefon</title>
+    <link rel="stylesheet" href="/edit-tel.css">
+</head>
+<body>
+<header>
+    <div class="container-header">
+    <h1>Gestionare Telefoane</h1>
+    </div>
+</header>
+
+<main>
+    <h1>Modifică Telefon</h1>
+    <form th:action="@{/telefoane/edit/{id}(id=${telefon.telefonId})}" method="post">
+        <label for="descriere">Descriere:</label>
+        <input type="text" id="descriere" name="descriere" th:value="${telefon.descriere}" required>
+
+        <label for="anFabricatie">An Fabricatie:</label>
+        <input type="number" id="anFabricatie" name="anFabricatie" th:value="${telefon.anFabricatie}" required>
+
+        <label for="culoare">Culoare:</label>
+        <input type="text" id="culoare" name="culoare" th:value="${telefon.culoare}" required>
+
+        <label for="memorie">Memorie:</label>
+        <input type="text" id="memorie" name="memorie" th:value="${telefon.memorie}" required>
+
+        <label for="statusStoc">Status Stoc:</label>
+        <input type="text" id="statusStoc" name="statusStoc" th:value="${telefon.statusStoc}" required>
+
+        <button type="submit" class="btn">Salvează Modificările</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2025 Gestionare Telefoane</p>
+</footer>
+</body>
+</html>

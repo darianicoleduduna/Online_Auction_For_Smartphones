@@ -1,0 +1,171 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+}
+header {
+    background-color: #5b0675;
+    color: #dab0f1;
+    padding: 20px 0;
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+}
+header p{
+    margin-left: 5px;
+}
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+    text-align:right;
+    margin-right: 20px;
+
+}
+nav a{
+    color: #dab0f1;
+    margin:5px;
+    font-size:18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+nav a:hover{
+    background-color: #ce4ad5;
+    padding:5px;
+    border-radius: 10px;
+
+}
+body{
+    background: linear-gradient(135deg, #4d0595, #cf0d7c);
+}
+/* Main content */
+main {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #d8ace8;
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+main h1, main h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.licitatie-details {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    color: #333333;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.licitatie-details h2 {
+    color: #5b0675;
+    margin-bottom: 15px;
+}
+
+.licitatie-details p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.image-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+table th {
+    background-color: #5b0675;
+    color: #ffffff;
+}
+
+table tr:hover {
+    background-color: #dab0f1;
+    color: #000000;
+}
+
+/* Form */
+form {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: #333333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5b0675;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #cf0d7c;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #5b0675;
+    color: #dab0f1;
+    margin-top: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

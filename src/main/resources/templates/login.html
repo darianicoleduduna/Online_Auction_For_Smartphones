@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Aplicatie Licitatii</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header >
+   <p> Licitatii online de telefoane mobile </p>
+</header>
+<div class="content">
+<div class="login-container">
+    <div class="login-box">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <div class="textbox">
+                <input type="text" placeholder="Username" name="username" required>
+            </div>
+            <div class="textbox">
+                <input type="password" placeholder="Password" name="password" required>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+        <!-- Mesajul de eroare -->
+        <div th:if="${param.error}">
+            <br>
+            <p style="color: #fb287e; font-weight: bold; margin: 10px">Datele introduse nu sunt corecte!</p>
+        </div>
+        <div class="footer">
+            <a href="/register">Create an account</a> | <a href="/forgot-password">Forgot password?</a>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

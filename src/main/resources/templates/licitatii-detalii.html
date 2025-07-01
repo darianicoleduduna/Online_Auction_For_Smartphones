@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalii Licitație</title>
+    <link rel="stylesheet" href="/detalii.css">
+</head>
+<body>
+<header>
+    <div class="container-header">
+        <p>Detalii Licitație</p>
+        <nav>
+            <a href="/home">Acasă</a>
+            <a href="/licitatii">Licitatii</a>
+            <a href="/telefoane">Telefoane</a>
+            <a href="/profile">Profilul Meu</a>
+            <a href="/ajutor">Ajutor</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <h1>Detalii Licitație</h1>
+    <div class="image-container">
+        <img th:src="${licitatieDetails['poza_url']}" alt="Imagine Telefon" />
+    </div>
+    <div class="licitatie-details">
+        <h2 th:text="${licitatieDetails['Descriere']}"></h2>
+
+        <p><strong>Brand:</strong> <span th:text="${licitatieDetails['Brand']}"></span></p>
+        <p><strong>Culoare:</strong> <span th:text="${licitatieDetails['Culoare']}"></span></p>
+        <p><strong>Memorie:</strong> <span th:text="${licitatieDetails['Memorie']}"></span></p>
+        <p><strong>An fabricatie:</strong> <span th:text="${licitatieDetails['Anfabricatie']}"></span></p>
+        <p><strong>Vânzător:</strong> <span th:text="${licitatieDetails['Nume']} + ' ' + ${licitatieDetails['Prenume']}"></span></p>
+        <p><strong>Rating Vânzător:</strong> <span th:text="${licitatieDetails['Rating']}"></span></p>
+    </div>
+
+    <h2>Oferte</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Suma Oferită</th>
+            <th>Utilizator</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="oferta : ${oferte}">
+            <td th:text="${oferta['Suma_oferita']} + ' RON'"></td>
+            <td th:text="${oferta['Username']}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Fă o ofertă</h2>
+    <form th:action="@{/licitatii/detalii/{masaID}/addOferta(masaID=${masaID})}" method="post">
+        <label for="suma">Suma:</label>
+        <input type="number" id="suma" name="suma" step="0.01" required>
+        <button type="submit" class="btn">Trimite Oferta</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2025 Licitații Online</p>
+</footer>
+</body>
+</html>

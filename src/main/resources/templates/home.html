@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Acasă</title>
+  <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+<header>
+  <div class="container-header">
+    <p>Bine ai venit pe Licitații Online!</p>
+    <nav>
+      <a href="/home">Acasă</a>
+      <a href="/licitatii">Licitatii</a>
+      <a href="/telefoane">Telefoane</a>
+      <a href="/profile">Profilul Meu</a>
+      <a href="/ajutor">Ajutor</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </div>
+</header>
+
+<main class="home-container">
+
+  <div class="description-container">
+    <h2>Bine ai venit pe pagina principală!</h2>
+    <p>Sa-ti oferim niste informatii despre noi</p>
+    <div class="description-box">
+      <p><strong>Licitații Online de Telefoane Mobile</strong> îți oferă acces rapid și ușor la cele mai noi și performante telefoane mobile, disponibile prin licitație. Aici poți:</p>
+      <ul>
+        <li>Vizualiza toate telefoanele disponibile, inclusiv starea lor actuală.</li>
+        <li>Descoperi categoriile de telefoane, organizate pe branduri și modele.</li>
+        <li>Accesa informații despre cei mai buni vânzători, cu cele mai mari ratinguri și produsele lor.</li>
+        <li>Urmări ultimele telefoane vândute.</li>
+      </ul>
+      <p><strong>Platforma noastră</strong> este dedicată pasionaților de tehnologie care caută oferte competitive într-un mediu sigur și transparent. Explorează acum!</p>
+    </div>
+  </div>
+
+
+
+  <div class="faq-section">
+    <!-- Secțiune Telefoane -->
+    <div class="faq-item">
+      <button class="faq-button" onclick="toggleFAQ('allPhones')">In curand vor aparea si .....</button>
+      <div class="faq-content" id="allPhones">
+        <ul class="phone-list">
+          <li th:each="telefon : ${telefoane}" class="phone-card">
+            <p> <span th:text="${telefon.model}"></span></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Secțiune Categorii -->
+    <div class="faq-item">
+      <button class="faq-button" onclick="toggleFAQ('phoneCategories')">Vrei sa stii cate telefoane avem din fiecare categorie?</button>
+      <div class="faq-content" id="phoneCategories">
+        <ul class="category-list">
+          <li th:each="categorie : ${categorii}" class="category-item">
+            <p><strong>Brand:</strong> <span th:text="${categorie.brand}"></span></p>
+            <p><strong>Număr Telefoane:</strong> <span th:text="${categorie.numarTelefoane}"></span></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Secțiune Vânzători -->
+    <div class="faq-item">
+      <button class="faq-button" onclick="toggleFAQ('topVanzatori')">Vanzatorii nostri cei mai apreciati?</button>
+      <div class="faq-content" id="topVanzatori">
+        <ul class="seller-list">
+          <li th:each="vanzator : ${vanzatoriTop}" class="seller-card">
+            <p><strong>Nume:</strong> <span th:text="${vanzator.nume + ' ' + vanzator.prenume}"></span></p>
+            <p><strong>Rating:</strong> <span th:text="${vanzator.rating}"></span></p>
+            <P><strong>Daca esti interesat de :</strong></P>
+            <ul>
+              <li th:each="telefon : ${vanzator.telefoane}" class="seller-phone">
+                <p><span th:text="${telefon}"></span></p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Secțiune Telefoane Vândute -->
+    <div class="faq-item">
+      <button class="faq-button" onclick="toggleFAQ('recentlySold')">Ce cumpara clientii nostri ....?</button>
+      <div class="faq-content" id="recentlySold">
+        <ul class="sold-phone-list">
+          <li th:each="telefon : ${ultimeleTelefoaneVandute}" class="sold-phone-card">
+            <p><strong>Model:</strong> <span th:text="${telefon['Model']}"></span></p>
+            <p><strong>Preț:</strong> <span th:text="${telefon['Suma']}"></span></p>
+            <p><strong>Data Vânzării:</strong> <span th:text="${telefon['Data']}"></span></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Secțiune Vânzători cu Telefoane din Categorii Populare -->
+    <div class="faq-item">
+      <button class="faq-button" onclick="toggleFAQ('topCategorySellers')">Daca esti interesat de ce e in trend...iti oferim providerii de cele mai cautate telefoane</button>
+      <div class="faq-content" id="topCategorySellers">
+        <ul class="category-seller-list">
+          <li th:each="vanzator : ${topVanzatoriInTopCategorii}" class="category-seller-card">
+            <p><strong>Nume:</strong> <span th:text="${vanzator['Nume']} + ' ' + ${vanzator['Prenume']}"></span></p>
+            <p><strong>Brand:</strong> <span th:text="${vanzator['Branduri']}"></span></p>
+            <p><strong>Total Telefoane Vândute:</strong> <span th:text="${vanzator['TotalTelefoaneVandute']}"></span></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" onclick="toggleFAQ('vanzatoriPretMediu')">Ești pe buget?</button>
+      <div class="faq-content" id="vanzatoriPretMediu">
+        <form th:action="@{/home}" method="get">
+          <label for="maxValue">Introdu bugetul:</label>
+          <input type="number" id="maxValue" name="maxValue" step="0.01" th:value="${maxValue}" required>
+          <button type="submit" class="btn">Filtrează</button>
+        </form>
+        <ul>
+          <li th:each="vanzator : ${vanzatoriPretMediu}">
+            <p><strong>Nume:</strong> <span th:text="${vanzator['Nume']} + ' ' + ${vanzator['Prenume']}"></span></p>
+            <p><strong>Preț Mediu Tranzacții:</strong> <span th:text="${vanzator['PretMediu']} + ' RON'"></span></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer">
+    <p>&copy; 2025 Licitații Online</p>
+  </div>
+</footer>
+
+<script>
+  function toggleFAQ(id) {
+    const element = document.getElementById(id);
+    if (element.style.display === "none" || !element.style.display) {
+      element.style.display = "block";
+    } else {
+      element.style.display = "none";
+    }
+  }
+</script>
+</body>
+</html>

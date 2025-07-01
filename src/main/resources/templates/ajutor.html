@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajutor</title>
+    <link rel="stylesheet" href="/ajutor.css">
+</head>
+<body>
+<header>
+    <div class="container-header">
+        <p>Ajutor</p>
+        <nav>
+            <a href="/home">Acasă</a>
+            <a href="/licitatii">Licitatii</a>
+            <a href="/telefoane">Telefoane</a>
+            <a href="/profile">Profilul Meu</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </div>
+</header>
+<main>
+    <h1>Cu ce te putem ajuta?</h1>
+    <form th:action="@{/ajutor/add}" method="post">
+        <label for="descriere">Descriere problemă:</label>
+        <textarea id="descriere" name="descriere" required></textarea>
+        <button type="submit" class="btn">Adaugă Problema</button>
+    </form>
+    <h2>Problemele tale</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Descriere</th>
+            <th>Admin</th>
+            <th>Status</th>
+            <th>Acțiuni</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="problema : ${probleme}">
+            <td th:text="${problema.descriere}"></td>
+            <td th:text="${problema.adminNume} + ' ' + ${problema.adminPrenume}"></td>
+            <td th:text="${problema.status}"></td>
+            <div th:if="${problema.status == 'activa'}">
+            <td>
+                <a th:href="@{/ajutor/edit/{id}(id=${problema.problemaID})}" class="btn" method="post">Editează</a>
+                <a th:href="@{/ajutor/delete/{id}(id=${problema.problemaID}, utilizatorID=${problema.utilizatorID})}" class="btn" onclick="return confirm('Ești sigur că vrei să ștergi această problemă?')">Șterge</a>
+            </td>
+            </div>
+        </tr>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <p>&copy; 2025 Ajutor</p>
+</footer>
+</body>
+</html>

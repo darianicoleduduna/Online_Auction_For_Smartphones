@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Gestionare Telefoane</title>
+  <link rel="stylesheet" href="/telefoane.css">
+</head>
+<body>
+<header>
+  <div class="container-header">
+    <p>Gestionare Telefoane</p>
+    <nav>
+      <a href="/home">Acasă</a>
+      <a href="/licitatii">Licitatii</a>
+      <a href="/telefoane">Telefoane</a>
+      <a href="/profile">Profilul Meu</a>
+      <a href="/ajutor">Ajutor</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Lista Telefoanelor</h1>
+  <!-- Formular de filtrare -->
+  <form th:action="@{/telefoane}" method="get" class="filter-form">
+    <label for="brand">Filtrează după Brand:</label>
+    <select id="brand" name="brand">
+      <option value="" th:if="${selectedBrand == null}" selected>-- Alege un Brand --</option>
+      <option th:each="brand : ${brands}" th:value="${brand}" th:text="${brand}"
+              th:selected="${brand == selectedBrand}"></option>
+    </select>
+    <button type="submit" class="btn">Filtrează</button>
+    <a th:href="@{/telefoane}" class="btn btn-reset">Resetează Filtrarea</a>
+  </form>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Descriere</th>
+      <th>An Fabricatie</th>
+      <th>Culoare</th>
+      <th>Memorie</th>
+      <th>Status Stoc</th>
+      <th>Acțiuni</th>
+    </tr>
+    </thead>
+    <tbody>
+    <a th:if="${showAll}" href="/telefoane/filter/top-sellers" class="btn">Telefoane de la Vânzători de Top</a>
+    <a th:if="${!showAll}" href="/telefoane/all" class="btn">Afișează toate telefoanele</a>
+    <!-- Iterează prin lista de telefoane -->
+    <tr th:each="telefon : ${telefoane}">
+      <td th:text="${telefon.descriere}"></td>
+      <td th:text="${telefon.anFabricatie}"></td>
+      <td th:text="${telefon.culoare}"></td>
+      <td th:text="${telefon.memorie}"></td>
+      <td th:text="${telefon.statusStoc}"></td>
+      <td>
+        <a th:href="@{'/telefoane/edit/' + ${telefon.telefonId}}" class="btn">Modifică</a>
+        <a th:href="@{'/telefoane/delete/' + ${telefon.telefonId}}" class="btn" onclick="return confirm('Ești sigur că vrei să ștergi acest telefon?')">Șterge</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h2>Adaugă un Telefon Nou</h2>
+  <form th:action="@{/telefoane/add}" method="post">
+    <label for="descriere">Descriere:</label>
+    <input type="text" id="descriere" name="descriere" required>
+
+    <label for="anFabricatie">An Fabricatie:</label>
+    <input type="number" id="anFabricatie" name="anFabricatie" required>
+
+    <label for="culoare">Culoare:</label>
+    <input type="text" id="culoare" name="culoare" required>
+
+    <label for="memorie">Memorie:</label>
+    <input type="text" id="memorie" name="memorie" required>
+
+    <label for="statusStoc">Status Stoc:</label>
+    <input type="text" id="statusStoc" name="statusStoc" required>
+
+    <button type="submit" class="btn">Adaugă Telefon</button>
+  </form>
+</main>
+
+<footer>
+  <p>&copy; 2025 Gestionare Telefoane</p>
+</footer>
+</body>
+</html>

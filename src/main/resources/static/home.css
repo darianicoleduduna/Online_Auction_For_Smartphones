@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+}
+header {
+    background-color: #5b0675;
+    color: #dab0f1;
+    padding: 20px 0;
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+}
+header p{
+    margin-left: 5px;
+}
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+    text-align:right;
+    margin-right: 20px;
+
+}
+nav a{
+    color: #dab0f1;
+    margin:5px;
+    font-size:18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+nav a:hover{
+    background-color: #ce4ad5;
+    padding:5px;
+    border-radius: 10px;
+
+}
+/* Stil pentru secțiunea principală */
+.home-container {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #4d0595, #cf0d7c);
+    color: #170322;
+    min-height: 100vh;
+}
+
+.home-container h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.home-container p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #ad5cff;
+}
+
+.faq-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-button {
+    background-color: #6c1b9c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-align: left;
+}
+
+.faq-button:hover {
+    background-color: #5b0675;
+}
+
+.faq-content {
+    display: none;
+    padding: 15px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.phone-list, .category-list, .seller-list, .sold-phone-list ,.category-seller-list{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.phone-card, .category-item, .seller-card, .sold-phone-card, .category-seller-card{
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: box-shadow 0.3s ease;
+}
+
+.phone-card:hover, .category-item:hover, .seller-card:hover, .sold-phone-card:hover,.category-seller-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.description-container {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+}
+
+.description-container h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #dab0f1;
+    margin-bottom: 10px;
+}
+
+.description-container p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.description-box {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.description-box ul {
+    list-style-type: disc;
+    margin: 10px 0 0 20px;
+}
+
+.description-box li {
+    margin-bottom: 10px;
+}
+
+.description-box strong {
+    color: #5b0675;
+}

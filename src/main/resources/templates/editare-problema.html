@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Editare Problemă</title>
+  <link rel="stylesheet" href="/editarepb.css">
+</head>
+<body>
+<header>
+  <h1>Editare Problemă</h1>
+</header>
+<main>
+  <form th:action="@{/ajutor/edit/{id}(id=${problema.problemaID})}" method="post">
+    <label for="descriere">Descriere:</label>
+    <input type="text" id="descriere" name="descriere" th:value="${problema.descriere}" required>
+
+    <label for="status">Status:</label>
+    <input type="text" id="status" name="status" th:value="${problema.status}" readonly>
+
+    <button type="submit">Salvează</button>
+  </form>
+</main>
+</body>
+</html>
